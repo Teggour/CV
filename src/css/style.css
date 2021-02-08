@@ -11,7 +11,6 @@
 body{
     background: url("../img/background.jpg") center no-repeat;
     background-size: cover;
-    /* background-color: rgb(29, 22, 121); */
 }
 
 
@@ -34,7 +33,6 @@ body{
 .head_inner{
     display: flex;
     justify-content: space-between;
-
     align-items: center;
 }
 
@@ -49,13 +47,15 @@ body{
     color: rgb(100, 100, 255);
     font-size: 30px;
     font-weight: 700;
+
+    max-height: 65px;
 }
 
 .navigation{
-    margin-right: 100px;
+    margin-right: 40px;
 }
 
-.navigation a{
+.navigation .anchors a{
     color: rgb(100, 100, 255);
     text-decoration: none;
     font-size: 22px;
@@ -65,8 +65,34 @@ body{
     transition: color 0.2s linear;
 }
 
-.navigation a:hover{
+.navigation .anchors a:hover{
     color: rgb(155, 155, 255);
+}   
+
+@media (max-width: 849px){
+    .navigation .anchors a{
+        margin: 0 15px;
+    }
+
+    .navigation{
+        margin-right: 15px;
+    }
+}
+
+@media (max-width: 675px){
+    .navigation .anchors a{
+        margin: 0 2px;
+    }
+
+    .navigation{
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 545px){
+    .navigation{
+        display: none;
+    }
 }
 
 
@@ -81,11 +107,16 @@ body{
     margin: 0 auto;
 }
 
+/* -------------------- */
+
 .cv{
     display: inline-block;
     width: 100%;
-    height: 100vh;
-    /* max-height: 700px; */
+    height: 100%;
+    max-height: 800px;
+    min-height: 600px;
+    max-width: 1200px;
+    min-width: 750px;
     background-color: rgba(222, 222, 250, 0.6);
     
     margin-top: 65px;
@@ -105,14 +136,13 @@ body{
     justify-content: space-around;
 
     height: calc(100% - 130px);
-    /* max-height: ; */
-    border: 3px solid green;
 }
 
 #about_me img{
-    height: 270px;
+    height: 300px;
+    width: auto;
     float: left;
-    margin: 20px 80px;
+    margin: 30px 80px;
     border: 4px solid rgb(33, 33, 54);
 }
 
@@ -137,10 +167,114 @@ body{
     text-decoration: none;
 }
 
+/* -------------------- */
+
+.progress_bar{
+    width: 70%;
+    margin: 20px 0;
+    list-style: none;
+    font-size: 23px;
+}
+
+.progress_bar li{
+    text-align: center;
+    position: relative;
+    margin: 30px 0;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.progress_bar li:before{
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background-color: rgba(33, 33, 54, 0.4);
+    border-radius: 10px;
+}
+
+.progress_bar li:after{
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 0;
+    height: 20px;
+    background-color: rgba(33, 33, 54, 1);
+    border-radius: 10px;
+    animation-duration: 0.7s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+}
+
+.progress_bar li.html:after{
+    animation-name: html;
+}
+
+@keyframes html{
+    to{
+        width: 65%;
+    }
+}
+
+.progress_bar li.css:after{
+    animation-name: css;
+}
+
+@keyframes css{
+    to{
+        width: 50%;
+    }
+}
+
+.progress_bar li.javascript:after{
+    animation-name: javascript;
+}
+
+@keyframes javascript{
+    to{
+        width: 20%;
+    }
+}
+
+.progress_bar li.python_django:after{
+    animation-name: python_django;
+}
+
+@keyframes python_django{
+    to{
+        width: 60%;
+    }
+}
+
+.progress_bar li.c_sharp:after{
+    animation-name: c_sharp;
+}
+
+@keyframes c_sharp{
+    to{
+        width: 70%;
+    }
+}
+
+.progress_bar li.c_plus_plus:after{
+    animation-name: c_plus_plus;
+}
+
+@keyframes c_plus_plus{
+    to{
+        width: 50%;
+    }
+}
+
+/* -------------------- */
+
 .column{
     margin: 50px 0;
     width: 30%;
-    height: 80%;
+    height: auto;
     background-color: rgb(33, 33, 54);
 }
 
@@ -161,7 +295,7 @@ body{
 
 .place{
     width: 80%;
-    margin: 0 auto;
+    margin: 30px auto;
     font-size: 23px;
     color: rgb(100, 100, 255);
 }
